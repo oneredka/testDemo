@@ -108,5 +108,6 @@
         <module>icarus-service</module>
         <module>icarus-common</module>
         <module>icarus-generator</module>
+        <module>icarus-service</module>
     </modules>
 </project>

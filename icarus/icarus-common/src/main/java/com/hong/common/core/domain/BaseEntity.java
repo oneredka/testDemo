@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 
 /**
@@ -17,9 +15,6 @@ import java.util.Map;
 public class BaseEntity implements Serializable,Cloneable
 {
     private static final long serialVersionUID = 1L;
-
-    /** 搜索值 */
-    private String searchValue;
 
     /** 创建者 */
     private String createBy;
@@ -34,28 +29,6 @@ public class BaseEntity implements Serializable,Cloneable
     /** 更新时间 */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
-
-    /** 备注 */
-    private String remark;
-
-    /** 请求参数 */
-    private Map<String, Object> params;
-
-    /** 更新者id */
-    private Integer updateUserId;
-
-    /** 创建者id */
-    private Integer createUserId;
-
-    public String getSearchValue()
-    {
-        return searchValue;
-    }
-
-    public void setSearchValue(String searchValue)
-    {
-        this.searchValue = searchValue;
-    }
 
     public String getCreateBy()
     {
@@ -97,45 +70,6 @@ public class BaseEntity implements Serializable,Cloneable
         this.updateTime = updateTime;
     }
 
-    public String getRemark()
-    {
-        return remark;
-    }
-
-    public void setRemark(String remark)
-    {
-        this.remark = remark;
-    }
-
-    public Integer getUpdateUserId() {
-        return updateUserId;
-    }
-
-    public void setUpdateUserId(Integer updateUserId) {
-        this.updateUserId = updateUserId;
-    }
-
-    public Integer getCreateUserId() {
-        return createUserId;
-    }
-
-    public void setCreateUserId(Integer createUserId) {
-        this.createUserId = createUserId;
-    }
-
-    public Map<String, Object> getParams()
-    {
-        if (params == null)
-        {
-            params = new HashMap<>();
-        }
-        return params;
-    }
-
-    public void setParams(Map<String, Object> params)
-    {
-        this.params = params;
-    }
 
     /**
      * 克隆当前实体,指向不同的引用空间
