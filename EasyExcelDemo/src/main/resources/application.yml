@@ -1,0 +1,36 @@
+#app
+server:
+  port: 8080
+
+spring:
+  application:
+    name: easy-excel-example
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/icarus?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: root
+    password: root
+
+
+#mybatis
+mybatis-plus:
+  # xml
+  mapper-locations: classpath:mapper/*Mapper.xml
+  # 实体扫描，多个package用逗号或者分号分隔
+  type-aliases-package: com.icarus.demo.entity
+  # 扫描枚举类 # 支持统配符 * 或者 ; 分割
+  type-enums-package: com.icarus.demo.entity.enums
+  global-config:
+    db-config:
+      #数据库大写下划线转换
+      capital-mode: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+
+logging:
+  level:
+    com.alibaba.nacos.client.naming: WARN
+    com.alibaba.nacos.client.config.impl: WARN
+  config: classpath:logback.xml
